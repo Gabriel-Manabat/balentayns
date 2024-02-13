@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://edtech4beginnerscom.files.wordpress.com/2016/03/logo_lockup_docs_icon_vertical_ela.png">
+  <title>Mikai Pasagot Survey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7ede2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #f9d5e5;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    h1 {
+      color: #6b0504;
+    }
+    button {
+      background-color: #6b0504;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #8e1a17;
+    }
+    .gif {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 250px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWc0Mzhrdmh2aWx5NnpiNTZxMTM0Y3I1ODB1NWc5bGtiMHZtZWRvcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/nkcEECVWrDtra5BqcT/giphy.gif" alt="Valentine GIF" class="gif">
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const gifImg = document.querySelector('.gif');
+    const h1Text = document.querySelector('h1');
+
+    function getRandomPosition() {
+
+  yesBtn.style.width = parseInt(yesBtn.style.width || '100px') + 60 + 'px';
+  yesBtn.style.height = parseInt(yesBtn.style.height || '40px') + 30 + 'px';
+
+  const x = Math.random() * (1920 - noBtn.offsetWidth);
+  const y = Math.random() * (1080 - noBtn.offsetHeight);
+  return [x, y];
+}
+
+
+
+    function moveButton() {
+      const [x, y] = getRandomPosition();
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    function handleYesButtonClick() {
+      gifImg.src = "https://media.tenor.com/0IKwuW91-ZQAAAAi/mimibubu.gif";
+      gifImg.style.top = '-200px';
+      h1Text.textContent = "Yayy! I'm so happy! Kita-kits Mikai! <3";
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+    }
+
+    noBtn.addEventListener('click', moveButton);
+    yesBtn.addEventListener('click', handleYesButtonClick);
+  </script>
+</body>
+</html>
